@@ -1,7 +1,7 @@
 # Emergent Agency from Self-Driving Thought Loops
 ### A New Architecture for Autonomous LLM Agents
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18615772.svg)](https://doi.org/10.5281/zenodo.18615772)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -225,8 +225,8 @@ Analysis of 78 thoughts identified 47 action-convertible utterances (60%), class
                   A New Architecture for Autonomous LLM Agents},
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.XXXXXXX},
-  url          = {https://github.com/xxx/emergent-agency}
+  doi          = {10.5281/zenodo.18615772},
+  url          = {https://github.com/AwakeningOS/emergent-agency}
 }
 ```
 
