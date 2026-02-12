@@ -1,7 +1,6 @@
 # Emergent Agency from Self-Driving Thought Loops
 ### A New Architecture for Autonomous LLM Agents
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18616134.svg)](https://doi.org/10.5281/zenodo.18616134)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
