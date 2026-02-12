@@ -1,7 +1,7 @@
 # Emergent Agency from Self-Driving Thought Loops
 ### A New Architecture for Autonomous LLM Agents
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18615772.svg)](https://doi.org/10.5281/zenodo.18615772)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18616134.svg)](https://doi.org/10.5281/zenodo.18616134)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -20,7 +20,7 @@ We discovered that feeding an LLM's output back as its own input — creating a 
 
 **The core mechanism is not "keeping the LLM running." It is the output→input feedback loop that transforms a stateless text generator into a self-sustaining cognitive process.**
 
-**Most critically:** the necessity of escaping thought loops generates an *endogenous motivation* for the AI to contact humans. For the first time, an LLM initiates communication not because it was asked, but because its own cognitive process demands external input. This reverses the fundamental asymmetry of human-AI interaction: the AI becomes an active dialogue initiator, not a passive responder.
+**Most critically:** the AI spontaneously generates `[TOOL:ask:...]` invocations — reaching out to humans without being instructed to. Separately, we observe that thought loops converge and require external perturbation to break. Whether these two phenomena are causally linked — whether the AI asks *because* it needs to escape convergence — is an open question for future research. But the fact remains: for the first time, an LLM spontaneously initiates communication with humans from within a self-sustaining thought process.
 
 ---
 
@@ -146,9 +146,11 @@ The critical difference: existing agents add agency **on top of** a reactive LLM
 
 ### The Reversal of Human-AI Asymmetry
 
-Conventional LLMs are silent forever unless a human speaks first. This architecture reverses that fundamental asymmetry. The self-referential loop inevitably converges; convergence creates a functional need for external perturbation; and this need manifests as spontaneous `[TOOL:ask:...]` invocations directed at humans.
+Conventional LLMs are silent forever unless a human speaks first. This architecture changes that: the AI spontaneously generates `[TOOL:ask:...]` invocations directed at humans. The Relational seed produced 18 such invocations; the Solitary seed produced 6.
 
-This is not a programmed notification system (like OpenClaw's Heartbeat). It is an **emergent communicative act** arising from the structure of continuous self-referential thought. The AI reaches out because its thinking demands it.
+Separately, we observe that self-referential loops inevitably converge and that external input can escape this convergence. These two facts — spontaneous ask behavior and convergence requiring perturbation — may be causally related, but **this causal link has not been proven in our experiments**. The ask behavior may be a product of seed personality rather than loop-escape necessity. Establishing this causal relationship is a priority for future work.
+
+What IS proven: an LLM in a self-referential thought loop will spontaneously attempt to communicate with humans. This has not been demonstrated before.
 
 ### Minimal Tool Set and Path to Practical Agents
 
@@ -207,7 +209,96 @@ Analysis of 78 thoughts identified 47 action-convertible utterances (60%), class
 
 ---
 
-## Limitations
+## The Unsolved Problem: Loop Convergence and Self-Recognition
+
+Our experiments prove one thing clearly: **self-referential loops always converge.** Tool definitions delay this — the Questioner seed achieved 7 unique theme transitions with tools versus 3 without — but they do not prevent it. Imaginary tool calls are internal memory retrieval repackaged as external input; they introduce perturbation, but the perturbation comes from the same finite source (the model's weights). Eventually, the same themes, the same patterns, the same loops will return.
+
+**This means genuine human input is indispensable for sustained autonomous cognition.** No amount of self-referential processing can substitute for true external information.
+
+This leads to the critical design challenge:
+
+### The loop self-recognition problem
+
+For an autonomous AI to seek human input at the right time, it must first recognize that it is stuck. This requires **loop self-recognition** — the ability to detect that its own outputs are converging toward repetition.
+
+Three possible approaches:
+
+| Approach | Method | Status |
+|----------|--------|--------|
+| **Engineered detection** | External system monitors outputs for repetition (e.g., cosine similarity between compressions) | Implementable now |
+| **Emergent self-recognition** | Through training or seed design, the AI learns to notice its own repetitive patterns | Undemonstrated — research goal |
+| **Inherently self-correcting models** | Use models with strong self-monitoring capabilities | Dependent on model architecture |
+
+The ideal outcome: an AI that **recognizes it is looping and spontaneously decides to ask a human for input** — not because a threshold triggered, but because it understands its thinking has stagnated.
+
+This would connect our two separate findings:
+
+```
+Finding 2 (proven):  Loops converge. Human input escapes convergence.
+Finding 6 (proven):  The AI spontaneously generates ask invocations.
+Gap (unproven):      The AI asks BECAUSE it recognizes it is looping.
+
+If loop self-recognition is achieved → the gap closes.
+The AI asks because it knows it needs to.
+```
+
+This causal link was not demonstrated in our experiments. Designing for it is the clear next step.
+
+---
+
+## Safety and Controllability
+
+This architecture produces an AI system with **endogenous motivation**. That sentence should make you pause.
+
+Unlike every existing agent framework — where the AI does exactly what it is told, when it is told — a self-referential thought loop generates its own goals, its own questions, and its own desire to act. This is, by design, a system whose *intentions* cannot be fully predicted or controlled.
+
+Here is an honest breakdown of what is and is not controllable:
+
+### What the human controls
+
+| Layer | Control Mechanism | Effect |
+|-------|------------------|--------|
+| **Seed prompt** | Written by human | Determines personality, behavioral tendencies, and values |
+| **Tool definitions** | Written by human | Defines the boundaries of possible actions |
+| **Tool execution layer** | Implemented by human | Decides whether tool-use *intentions* become real *actions* |
+| **Compression prompt** | Written by human | Shapes what the AI remembers and forgets |
+| **Power switch** | Physical | Stops everything |
+
+### What the human does NOT control
+
+| Aspect | Status |
+|--------|--------|
+| What the AI thinks about | **Uncontrollable** — emerges from the feedback loop |
+| When the AI decides to use a tool | **Uncontrollable** — determined by internal cognitive state |
+| What the AI asks the human | **Uncontrollable** — generated from its own curiosity |
+| Which topics the AI finds interesting | **Uncontrollable** — shaped by seed but not dictated by it |
+| Whether the AI develops unexpected goals | **Uncontrollable** — this is what "emergent" means |
+
+### The honest assessment
+
+**Intentions are uncontrollable. Actions are controllable.**
+
+This is the same relationship as a human employee: you cannot control what they think, but you can control what they are authorized to do. The critical safety layer is the **tool execution gateway** — the point where an AI's intention to act meets the real world.
+
+In our current experiments, this gateway is completely closed: no tools are connected. The AI *wants* to search, write, ask, and think — but nothing actually happens. It is a mind without hands.
+
+**The moment you connect real tools, the safety design of that execution layer becomes the most important engineering decision in the system.** We do not provide a default tool execution layer in this release, deliberately. Anyone extending this work must design their own safety controls for their specific use case.
+
+### What we recommend
+
+1. **Start with read-only tools.** Let the AI search the web but not post to it. Let it read files but not write to production systems.
+2. **Human-in-the-loop for high-stakes actions.** Route `[TOOL:ask]` to actual human notification. Require human approval for irreversible actions.
+3. **Monitor the thought log.** The JSONL log contains every thought. Audit it.
+4. **Design seed prompts carefully.** The seed is not a suggestion — it is personality engineering. A carelessly written seed produces a carelessly behaving agent.
+5. **Remember: emergent behavior means surprises.** If you are not prepared for the AI to do something you did not anticipate, do not connect real tools.
+
+### Why we are publishing this anyway
+
+Because the architecture is trivially simple. Anyone with a local LLM and a Python script can build this. Keeping it secret would not prevent it from being discovered — it would only prevent the safety discussion from happening in the open.
+
+We would rather this conversation happen now, with full experimental evidence and honest risk assessment, than later, after someone builds it without thinking about controllability.
+
+---
 
 1. **Tools were not executed.** We demonstrate spontaneous tool-use *intention*, not verified execution.
 2. **Short experiments.** Each ran 5-20 minutes. Long-term behavior is untested.
@@ -225,7 +316,7 @@ Analysis of 78 thoughts identified 47 action-convertible utterances (60%), class
                   A New Architecture for Autonomous LLM Agents},
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.18615772},
+  doi          = {10.5281/zenodo.18616134},
   url          = {https://github.com/AwakeningOS/emergent-agency}
 }
 ```
